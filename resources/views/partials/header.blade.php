@@ -4,15 +4,21 @@
             <div class="container d-flex justify-content-between">
                 <div>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/Projects') }}">{{__('Projects')}}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/user') }}">{{__('User')}}</a>
-                        </li>
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('admin/Projects') }}">{{__('Projects')}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('admin/user') }}">{{__('User')}}</a>
+                            </li>
+                        @endguest
                     </ul>
                 </div>
                 

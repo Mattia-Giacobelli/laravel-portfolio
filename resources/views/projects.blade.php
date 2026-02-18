@@ -31,9 +31,9 @@
                         </td> --}}
 
                         <td><a href="{{route('admin.project', $project['id'])}}">{{$project['name']}}</a></td>
-                        <td>{{$project['languages']}}</td>
-                        <td>{{$project['framework']}}</td>
                         <td>{{$project['category']}}</td>
+                        <td>{{$project['framework']}}</td>
+                        <td>{{$project['languages']}}</td>
                         <td>{{$project['front_end']}}</td>
                         <td>{{$project['back_end']}}</td>
                     </tr>
