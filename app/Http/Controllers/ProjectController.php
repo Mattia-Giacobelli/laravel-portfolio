@@ -13,6 +13,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+
+        return view('projects', compact('projects'));
     }
 
     /**
@@ -36,7 +38,14 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        // echo $id;
+
+        $project = Project::find($id);
+
+        // var_dump($project);
+
+        return view('project', compact('project'));
     }
 
     /**

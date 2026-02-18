@@ -18,7 +18,7 @@ class ProjectsTableSeeder extends Seeder
                 'languages' => 'js',
                 'framework' => 'React, Express',
                 'category' => 'E-commerce',
-                'img' => 'SiliconStock.png',
+                'img' => 'resources/img/SiliconStock.png',
                 'description' => 'SiliconStock is a simulation of an e-commerce of pc components witch features 
                     a working chatbot that can answer about products, a persistent cart, e-mail sending and stripe 
                     payment system.',
@@ -34,7 +34,7 @@ class ProjectsTableSeeder extends Seeder
                 'languages' => 'js',
                 'framework' => 'React',
                 'category' => 'Streaming',
-                'img' => 'Boolflix.png',
+                'img' => 'resources/img/Boolflix.png',
                 'description' => 'A site that gives info about film and series, inspired to netflix style, you can 
                     filter by type ( TV series or film) and by genre; you can also search by name and combine filters.',
                 'descrizione' => "Un sito che fornisce informazioni su film e serie, ispirato allo stile Netflix,
@@ -48,7 +48,7 @@ class ProjectsTableSeeder extends Seeder
                 'languages' => '',
                 'framework' => '',
                 'category' => 'Music',
-                'img' => 'Bandcamp.png',
+                'img' => 'resources/img/Bandcamp.png',
                 'description' => 'A plain html and css remake of the official bandcamp site.',
                 'descrizione' => 'Un semplice remake in HTML e CSS del sito ufficiale di Bandcamp',
                 'front_end' => true,

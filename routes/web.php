@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,7 +10,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -24,6 +25,10 @@ Route::middleware('auth', 'verified')
     ->group(function () {
 
         Route::get('/user', [UsersController::class, 'show'])->name('user');
+
+        Route::get('/Projects', [ProjectController::class, 'index'])->name('projects');
+
+        Route::get('/Projects/{id}', [ProjectController::class, 'show'])->name('project');
     });
 
 require __DIR__ . '/auth.php';
