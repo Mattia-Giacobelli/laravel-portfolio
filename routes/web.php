@@ -37,6 +37,8 @@ Route::middleware('auth', 'verified')
         Route::get('/Project/{project}/edit', [ProjectController::class, 'edit'])->name('project.edit');
 
         Route::put('/Project/{project}/update', [ProjectController::class, 'update'])->name('project.update');
+
+        Route::delete('/Projects/{project}', [ProjectController::class, 'destroy'])->name('project.destroy');
     });
 
 require __DIR__ . '/auth.php';
