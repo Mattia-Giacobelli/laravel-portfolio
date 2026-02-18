@@ -32,7 +32,11 @@ Route::middleware('auth', 'verified')
 
         Route::get('/Project/create', [ProjectController::class, 'create'])->name('project.create');
 
-        Route::post('/Project/create', [ProjectController::class, 'store'])->name('project.store');
+        Route::post('/Project/store', [ProjectController::class, 'store'])->name('project.store');
+
+        Route::get('/Project/{project}/edit', [ProjectController::class, 'edit'])->name('project.edit');
+
+        Route::put('/Project/{project}/update', [ProjectController::class, 'update'])->name('project.update');
     });
 
 require __DIR__ . '/auth.php';

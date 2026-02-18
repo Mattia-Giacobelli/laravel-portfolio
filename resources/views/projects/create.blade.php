@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Projects
+    Aggiungi un progetto
 @endsection
 
 

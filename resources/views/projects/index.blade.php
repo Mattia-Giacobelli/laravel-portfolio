@@ -10,7 +10,9 @@
     
     <div class="container  mt-5">
 
-        <a href="{{ route('admin.project.create')}}">Aggiungi un progetto</a>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-primary" href="{{ route('admin.project.create')}}">Aggiungi un progetto</a>
+        </div>
 
         <table class="table table-striped mt-4 w-100">
             <thead>

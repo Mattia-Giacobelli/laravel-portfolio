@@ -64,7 +64,7 @@ class ProjectController extends Controller
 
         $newProject->save();
 
-        return redirect()->route('admin.projects');
+        return redirect()->route('admin.project', $newProject);
     }
 
     /**
@@ -85,17 +85,52 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        //
+
+        // dd($project);
+
+        return view('projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+
+        $data = $request->all();
+
+        $project->name = $data['name'];
+        $project->languages = $data['languages'];
+        $project->framework = $data['framework'];
+        $project->category = $data['category'];
+        $project->img = $data['img'];
+        $project->description = $data['description'];
+        $project->descrizione = $data['descrizione'];
+
+        if (isset($data['front_end'])) {
+
+            $project->front_end = true;
+        } else {
+
+            $project->front_end = false;
+        }
+
+        if (isset($data['back_end'])) {
+
+            $project->back_end = true;
+        } else {
+
+            $project->back_end = false;
+        }
+
+
+        $project->update();
+
+        return redirect()->route('admin.project', $project->id);
+
+        return 'update';
     }
 
     /**
