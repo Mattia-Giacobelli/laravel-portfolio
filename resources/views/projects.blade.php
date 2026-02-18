@@ -10,18 +10,18 @@
     
     <div class="container">
 
-        <table>
+        <table class="table table-striped mt-5 w-100">
             <thead>
                 {{-- <th></th> --}}
-                <th>Nome</th>
-                <th>Categoria</th>
-                <th>Framework</th>
-                <th>Linguaggi utilizzati</th>
-                <th>Front-end</th>
-                <th>Back-end</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Framework</th>
+                <th scope="col">Linguaggi utilizzati</th>
+                <th scope="col">Front-end</th>
+                <th scope="col">Back-end</th>
             </thead>
 
-            <tbody>
+            <tbody >
 
                 @foreach ($projects as $project)
                     {{-- {{$project->id}} --}}
@@ -29,6 +29,7 @@
                         {{-- <td>
                             <img src="{{ Vite::asset($project['img']) }}" alt="scree">
                         </td> --}}
+
                         <td><a href="{{route('admin.project', $project['id'])}}">{{$project['name']}}</a></td>
                         <td>{{$project['languages']}}</td>
                         <td>{{$project['framework']}}</td>
