@@ -8,9 +8,11 @@
 
 @section('main')
     
-    <div class="container">
+    <div class="container  mt-5">
 
-        <table class="table table-striped mt-5 w-100">
+        <a href="{{ route('admin.project.create')}}">Aggiungi un progetto</a>
+
+        <table class="table table-striped mt-4 w-100">
             <thead>
                 {{-- <th></th> --}}
                 <th scope="col">Nome</th>
@@ -34,8 +36,19 @@
                         <td>{{$project['category']}}</td>
                         <td>{{$project['framework']}}</td>
                         <td>{{$project['languages']}}</td>
-                        <td>{{$project['front_end']}}</td>
-                        <td>{{$project['back_end']}}</td>
+
+                        @if ($project['front_end'] == 1)
+                            <td>Sì</td>
+                        @else
+                            <td>No</td>
+                        @endif
+
+                        @if ($project['back_end'] == 1)
+                            <td>Sì</td>
+                        @else
+                            <td>No</td>
+                        @endif
+
                     </tr>
 
                 @endforeach

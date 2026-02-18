@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Project
+    {{$project->name}}
 @endsection
 
 

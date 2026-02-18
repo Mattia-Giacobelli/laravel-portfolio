@@ -8,7 +8,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 
-    <title>Admin-@yield('title')</title>
+    <title>@yield('title')</title>
 </head>
 <body>
     
