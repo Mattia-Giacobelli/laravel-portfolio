@@ -33,6 +33,18 @@
                 <input type="text" class="form-control" id="category" name="category" value="{{$project->category}}">
             </div>
             <div class="mb-3">
+                <label for="type_id" class="form-label">Tipologia</label>
+                <select class="form-select" id="type_id" name="type_id"> 
+
+                    @foreach ($types as $type)
+                        
+                        <option value="{{ $type->id }}" {{ $project->type->id == $type->id ? 'selected' : '' }}> {{ $type->name }} </option>
+
+                    @endforeach
+                    
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="img" class="form-label">Percorso dell'immagine</label>
                 <input type="text" class="form-control" id="img" name="img" value="{{$project->img}}">
             </div>

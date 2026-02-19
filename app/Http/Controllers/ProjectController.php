@@ -78,7 +78,9 @@ class ProjectController extends Controller
 
         // dd($project);
 
-        return view('projects.edit', compact('project'));
+        $types = Type::all();
+
+        return view('projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -93,26 +95,10 @@ class ProjectController extends Controller
         $project->languages = $data['languages'];
         $project->framework = $data['framework'];
         $project->category = $data['category'];
+        $project->type_id = $data['type_id'];
         $project->img = $data['img'];
         $project->description = $data['description'];
         $project->descrizione = $data['descrizione'];
-
-        if (isset($data['front_end'])) {
-
-            $project->front_end = true;
-        } else {
-
-            $project->front_end = false;
-        }
-
-        if (isset($data['back_end'])) {
-
-            $project->back_end = true;
-        } else {
-
-            $project->back_end = false;
-        }
-
 
         $project->update();
 
