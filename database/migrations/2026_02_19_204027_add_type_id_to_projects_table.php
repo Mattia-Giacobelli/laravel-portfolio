@@ -20,7 +20,7 @@ return new class extends Migration
 
             //Add the foreign key column
 
-            $table->foreignId('type_id')->default(1)->constrained()->cascadeOnDelete();
+            $table->foreignId('type_id')->default(1)->nullable()->constrained()->nullOnDelete();
         });
     }
 

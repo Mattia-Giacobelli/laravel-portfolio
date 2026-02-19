@@ -36,7 +36,7 @@
                         </td> --}}
 
                         <td class="align-middle"><a href="{{route('admin.project', $project['id'])}}">{{$project['name']}}</a></td>
-                        <td class="align-middle">{{$project->type->name}}</td>
+                        <td class="align-middle">{{$project->type_id != null ? $project->type->name : ''}}</td>
                         <td class="align-middle">{{$project['category']}}</td>
                         <td class="align-middle">{{$project['framework']}}</td>
                         <td class="align-middle">{{$project['languages']}}</td>
