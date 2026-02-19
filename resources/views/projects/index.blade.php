@@ -18,11 +18,10 @@
             <thead>
                 {{-- <th></th> --}}
                 <th scope="col">Nome</th>
+                <th scope="col">Tipologia</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Framework</th>
                 <th scope="col">Linguaggi utilizzati</th>
-                <th scope="col">Front-end</th>
-                <th scope="col">Back-end</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </thead>
@@ -36,22 +35,11 @@
                             <img src="{{ Vite::asset($project['img']) }}" alt="scree">
                         </td> --}}
 
-                        <td><a href="{{route('admin.project', $project['id'])}}">{{$project['name']}}</a></td>
-                        <td>{{$project['category']}}</td>
-                        <td>{{$project['framework']}}</td>
-                        <td>{{$project['languages']}}</td>
-
-                        @if ($project['front_end'] == 1)
-                            <td>Sì</td>
-                        @else
-                            <td>No</td>
-                        @endif
-
-                        @if ($project['back_end'] == 1)
-                            <td>Sì</td>
-                        @else
-                            <td>No</td>
-                        @endif
+                        <td class="align-middle"><a href="{{route('admin.project', $project['id'])}}">{{$project['name']}}</a></td>
+                        <td class="align-middle">{{$project->type->name}}</td>
+                        <td class="align-middle">{{$project['category']}}</td>
+                        <td class="align-middle">{{$project['framework']}}</td>
+                        <td class="align-middle">{{$project['languages']}}</td>
 
                         <td>
                             <a class="btn btn-outline-warning " href="{{ route('admin.project.edit', $project)}}">Modifica</a>

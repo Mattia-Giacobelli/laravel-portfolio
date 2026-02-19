@@ -17,13 +17,15 @@
             </div>
             <div class="p-3">
                 <div class="d-flex justify-content-between">
-
+                    
                     <h1> {{$project->name}} </h1>
 
-                    <h2> {{$project->category}} </h2>
+                    <h2> {{$project->type->name}} </h2>
                     {{-- @dd($project) --}}
                     
                 </div>
+
+                <h3> Categoria: {{$project->category}}</h3>
                 <h3> Framework utilizzati: {{$project->framework}} </h3>
                 <h5> Linguaggi: {{$project->languages}} </h5>
                 <h5 class="mt-5"> {{$project->descrizione}} </h5>

@@ -28,7 +28,19 @@
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">Categoria</label>
-                <input type="text" class="form-control" id="category" name="category">
+                <input class="form-control" id="category" name="category">
+            </div>
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Tipologia</label>
+                <select class="form-select" id="type_id" name="type_id"> 
+
+                    @foreach ($types as $type)
+                        
+                        <option value="{{ $type->id }}"> {{ $type->name }} </option>
+
+                    @endforeach
+                    
+                </select>
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Percorso dell'immagine</label>
@@ -41,14 +53,6 @@
             <div class="mb-3">
                 <label for="descrizione" class="form-label">Descrizione in italiano</label>
                 <textarea class="form-control" id="descrizione" name="descrizione"> </textarea>
-            </div>
-            <div class="mb-3 form-check">
-                <label class="form-check-label" for="front_end">Front-end</label>
-                <input type="checkbox" class="form-check-input" id="front_end" name="front_end">
-            </div>
-            <div class="mb-3 form-check">
-                <label class="form-check-label" for="back_end">Back-end</label>
-                <input type="checkbox" class="form-check-input" id="back_end" name="back_end">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
