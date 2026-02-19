@@ -103,8 +103,6 @@ class ProjectController extends Controller
         $project->update();
 
         return redirect()->route('admin.project', $project->id);
-
-        return 'update';
     }
 
     /**

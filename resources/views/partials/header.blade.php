@@ -18,6 +18,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('admin/user') }}">{{__('User')}}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('admin/Types') }}">Types</a>
+                            </li>
                         @endguest
                     </ul>
                 </div>

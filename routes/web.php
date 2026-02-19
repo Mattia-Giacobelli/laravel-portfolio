@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,23 @@ Route::middleware('auth', 'verified')
         Route::put('/Project/{project}/update', [ProjectController::class, 'update'])->name('project.update');
 
         Route::delete('/Projects/{project}', [ProjectController::class, 'destroy'])->name('project.destroy');
+
+        //Types routes
+        Route::get('/Types', [TypeController::class, 'index'])->name('types');
+
+        Route::get('/Types/{type}', [TypeController::class, 'show'])->name('type');
+
+        Route::get('/Type/create', [TypeController::class, 'create'])->name('type.create');
+
+        Route::post('/Type/store', [TypeController::class, 'store'])->name('type.store');
+
+        Route::get('/Type/{type}/edit', [TypeController::class, 'edit'])->name('type.edit');
+
+        Route::put('/Type/{type}/update', [TypeController::class, 'update'])->name('type.update');
+
+        Route::delete('/Types/{type}', [TypeController::class, 'destroy'])->name('type.destroy');
     });
+
+
 
 require __DIR__ . '/auth.php';
