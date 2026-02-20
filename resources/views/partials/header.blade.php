@@ -21,6 +21,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('admin/Types') }}">Types</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('admin/technologies') }}">Technologies</a>
+                            </li>
                         @endguest
                     </ul>
                 </div>

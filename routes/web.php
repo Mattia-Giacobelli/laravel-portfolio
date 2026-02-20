@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TechnologyController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,7 @@ Route::middleware('auth', 'verified')
 
         Route::delete('/Projects/{project}', [ProjectController::class, 'destroy'])->name('project.destroy');
 
-        //Types routes
+        //technologies routes
         Route::get('/Types', [TypeController::class, 'index'])->name('types');
 
         Route::get('/Types/{type}', [TypeController::class, 'show'])->name('type');
@@ -55,6 +56,21 @@ Route::middleware('auth', 'verified')
         Route::put('/Type/{type}/update', [TypeController::class, 'update'])->name('type.update');
 
         Route::delete('/Types/{type}', [TypeController::class, 'destroy'])->name('type.destroy');
+
+        //Tecnologies routes
+        Route::get('/technologies', [TechnologyController::class, 'index'])->name('technologies');
+
+        Route::get('/technologies/{technology}', [TechnologyController::class, 'show'])->name('technology');
+
+        Route::get('/technology/create', [TechnologyController::class, 'create'])->name('technology.create');
+
+        Route::post('/technology/store', [TechnologyController::class, 'store'])->name('technology.store');
+
+        Route::get('/technology/{technology}/edit', [TechnologyController::class, 'edit'])->name('technology.edit');
+
+        Route::put('/technology/{technology}/update', [TechnologyController::class, 'update'])->name('technology.update');
+
+        Route::delete('/technologies/{technology}', [TechnologyController::class, 'destroy'])->name('technology.destroy');
     });
 
 
