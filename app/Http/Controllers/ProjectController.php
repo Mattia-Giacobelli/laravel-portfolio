@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class ProjectController extends Controller
 
         $types = Type::all();
 
-        return view('projects.create', compact('types'));
+        $technologies = Technology::all();
+
+        return view('projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -43,7 +46,7 @@ class ProjectController extends Controller
 
         $newProject->name = $data['name'];
         $newProject->languages = $data['languages'];
-        $newProject->framework = $data['framework'];
+        // $newProject->framework = $data['framework'];
         $newProject->category = $data['category'];
         $newProject->type_id = $data['type_id'];
         $newProject->img = $data['img'];
@@ -51,6 +54,8 @@ class ProjectController extends Controller
         $newProject->descrizione = $data['descrizione'];
 
         $newProject->save();
+
+        $newProject->technologies()->attach($data['technologies']);
 
         return redirect()->route('admin.project', $newProject);
     }
@@ -80,7 +85,9 @@ class ProjectController extends Controller
 
         $types = Type::all();
 
-        return view('projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+
+        return view('projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -93,7 +100,7 @@ class ProjectController extends Controller
 
         $project->name = $data['name'];
         $project->languages = $data['languages'];
-        $project->framework = $data['framework'];
+        // $project->framework = $data['framework'];
         $project->category = $data['category'];
         $project->type_id = $data['type_id'];
         $project->img = $data['img'];
@@ -101,6 +108,8 @@ class ProjectController extends Controller
         $project->descrizione = $data['descrizione'];
 
         $project->update();
+
+        $project->technologies()->sync($data['technologies']);
 
         return redirect()->route('admin.project', $project->id);
     }

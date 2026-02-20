@@ -20,7 +20,7 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Tipologia</th>
                 <th scope="col">Categoria</th>
-                <th scope="col">Framework</th>
+                <th scope="col">Tecnologie</th>
                 <th scope="col">Linguaggi utilizzati</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -38,7 +38,16 @@
                         <td class="align-middle"><a href="{{route('admin.project', $project['id'])}}">{{$project['name']}}</a></td>
                         <td class="align-middle">{{$project->type_id != null ? $project->type->name : ''}}</td>
                         <td class="align-middle">{{$project['category']}}</td>
-                        <td class="align-middle">{{$project['framework']}}</td>
+                        <td class="align-middle">
+                            @for ($i = 0; $i < count($project->technologies); $i++)
+                        
+                            @if ($i == count($project->technologies) - 1)
+                                {{ $project->technologies[$i]->name }}
+                            @else
+                                {{ $project->technologies[$i]->name }},
+                            @endif
+
+                    @endfor   </td>
                         <td class="align-middle">{{$project['languages']}}</td>
 
                         <td>

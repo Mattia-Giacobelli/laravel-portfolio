@@ -64,7 +64,7 @@ class ProjectsTableSeeder extends Seeder
 
             $newProject->name = $project['name'];
             $newProject->languages = $project['languages'];
-            $newProject->framework = $project['framework'];
+            // $newProject->framework = $project['framework'];
             $newProject->category = $project['category'];
             $newProject->img = $project['img'];
             $newProject->description = $project['description'];

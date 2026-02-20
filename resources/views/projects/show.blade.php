@@ -26,7 +26,17 @@
                 </div>
 
                 <h3> Categoria: {{$project->category}}</h3>
-                <h3> Framework utilizzati: {{$project->framework}} </h3>
+                <h3> Tecnologie utilizzate: 
+                    @for ($i = 0; $i < count($project->technologies); $i++)
+                        
+                        @if ($i == count($project->technologies) - 1)
+                            {{ $project->technologies[$i]->name }}
+                        @else
+                            {{ $project->technologies[$i]->name }},
+                        @endif
+
+                    @endfor    
+                </h3>
                 <h5> Linguaggi: {{$project->languages}} </h5>
                 <h5 class="mt-5"> {{$project->descrizione}} </h5>
             </div>

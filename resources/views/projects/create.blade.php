@@ -22,10 +22,10 @@
                 <label for="languages" class="form-label">Linguaggi utilizzati</label>
                 <input type="text" class="form-control" id="languages" name="languages">
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="framework" class="form-label">Framework utilizzati</label>
                 <input type="text" class="form-control" id="framework" name="framework">
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <label for="category" class="form-label">Categoria</label>
                 <input class="form-control" id="category" name="category">
@@ -42,6 +42,21 @@
                     
                 </select>
             </div>
+
+            {{-- @dd($technologies) --}}
+
+            <span class="d-block mb-2">Tecnologie</span>
+            
+            @foreach ($technologies as $tech)
+            
+                <div class="form-check form-check-inline mb-3">
+                    <input name="technologies[]" value="{{ $tech->id }}" class="form-check-input" type="checkbox" id="tech{{ $tech->id }}">
+                    <label class="form-check-label" for="tech{{ $tech->id }}"> {{ $tech->name }} </label>
+                </div>
+
+            @endforeach
+
+
             <div class="mb-3">
                 <label for="img" class="form-label">Percorso dell'immagine</label>
                 <input type="text" class="form-control" id="img" name="img">
