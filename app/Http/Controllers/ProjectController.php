@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -49,9 +50,20 @@ class ProjectController extends Controller
         // $newProject->framework = $data['framework'];
         $newProject->category = $data['category'];
         $newProject->type_id = $data['type_id'];
-        $newProject->img = $data['img'];
         $newProject->description = $data['description'];
         $newProject->descrizione = $data['descrizione'];
+
+        //Save img in public and save the path into the database
+
+        // dd($data);
+
+        if (array_key_exists('img', $data)) {
+
+            $imgURL = Storage::putFile('projects', $data['img']);
+
+            $newProject->img = $imgURL;
+        }
+
 
         $newProject->save();
 
@@ -103,9 +115,30 @@ class ProjectController extends Controller
         // $project->framework = $data['framework'];
         $project->category = $data['category'];
         $project->type_id = $data['type_id'];
-        $project->img = $data['img'];
         $project->description = $data['description'];
         $project->descrizione = $data['descrizione'];
+
+
+        //Save img in public and save the path into the database
+
+        // dd($data);
+
+        if (array_key_exists('img', $data)) {
+
+            //Delete the old img
+
+            Storage::delete($project->img);
+
+            //Add the new image
+
+            $imgURL = Storage::putFile('projects', $data['img']);
+
+
+
+            $project->img = $imgURL;
+        }
+
+
 
         $project->update();
 
@@ -121,6 +154,10 @@ class ProjectController extends Controller
     {
 
         // dd($project);
+
+        //Delete the related img
+        Storage::delete($project->img);
+
 
         $project->delete();
 

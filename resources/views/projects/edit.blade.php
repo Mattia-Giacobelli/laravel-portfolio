@@ -10,7 +10,7 @@
 
     <div class="container mt-5">
 
-        <form action="{{ route('admin.project.update', $project) }}" method="POST">
+        <form action="{{ route('admin.project.update', $project) }}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
@@ -57,8 +57,17 @@
             @endforeach
 
             <div class="mb-3">
-                <label for="img" class="form-label">Percorso dell'immagine</label>
-                <input type="text" class="form-control" id="img" name="img" value="{{$project->img}}">
+                <label for="img" class="form-label">Copertina</label>
+                
+                <div class="d-flex align-items-center form-control">
+                    <input type="file"  id="img" name="img">
+
+                    @if ($project->img != '')
+                        <img src="{{ asset('storage/' . $project->img) }}" class="img-fluid w-25" alt="copertina">
+                    @endif
+                    
+                </div>
+                
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione in inglese</label>

@@ -10,7 +10,7 @@
 
     <div class="container mt-5">
 
-        <form action="{{ route('admin.project.store') }}" method="POST">
+        <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
@@ -58,8 +58,8 @@
 
 
             <div class="mb-3">
-                <label for="img" class="form-label">Percorso dell'immagine</label>
-                <input type="text" class="form-control" id="img" name="img">
+                <label for="img" class="form-label">Copertina</label>
+                <input type="file" class="form-control" id="img" name="img">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione in inglese</label>
